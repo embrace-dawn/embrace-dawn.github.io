@@ -279,8 +279,8 @@
                             <label for="verifyCode">验证码</label>
                             <div class="verify-container">
                                 <input type="text" id="verifyCode" placeholder="输入右侧验证码" required>
-                                <div class="verify-code" id="verifyCodeImg">8976</div>
-                            </div>
+                                <div class="verify-code" id="verifyCodeImg"></div>
+                             </div>
                         </div>
                         <button type="submit" class="btn">提交留言</button>
                     </form>
@@ -372,23 +372,135 @@
 
     <script src="js/script.js"></script>
     <script>
-        // 留言表单提交
-        document.getElementById('messageForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('留言提交成功！我们会尽快回复您～');
-            this.reset();
-        });
+       // 留言表单提交
+document.getElementById('messageForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  // 获取表单数据
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const content = document.getElementById('content').value;
+  const captchaCode = document.getElementById('verifyCode').value;
+  const captchaId = document.getElementById('captchaId').value; // 新增隐藏字段存储验证码ID
 
-        // 验证码刷新
-        document.getElementById('verifyCodeImg').addEventListener('click', function() {
-            const codes = ['8976', '4589', '7890', '1234', '5678'];
-            this.textContent = codes[Math.floor(Math.random() * codes.length)];
-        });
+  try {
+    // 提交留言到后端
+    const response = await fetch('http://localhost:3001/api/message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        subject,
+        content,
+        captchaId,
+        captchaCode
+      })
+    });
 
-        // 查看更多留言
-        document.querySelector('.btn-more').addEventListener('click', function() {
-            alert('已加载更多留言！');
-        });
+    const result = await response.json();
+    if (result.code === 200) {
+      alert('留言提交成功！我们会尽快回复您～');
+      this.reset();
+      refreshCaptcha(); // 提交成功后刷新验证码
+    } else {
+      alert('提交失败：' + result.message);
+    }
+  } catch (err) {
+    alert('网络错误，请稍后重试');
+    console.error(err);
+  }
+});
+
+// 初始化/刷新验证码
+async function refreshCaptcha() {
+  try {
+    const response = await fetch('http://localhost:3001/api/captcha');
+    const result = await response.json();
+    if (result.code === 200) {
+      // 替换验证码图片（SVG）
+      document.getElementById('verifyCodeImg').innerHTML = result.data.captchaSvg;
+      // 存储验证码ID（隐藏字段，需要在HTML中新增）
+      document.getElementById('captchaId').value = result.data.captchaId;
+    }
+  } catch (err) {
+    console.error('获取验证码失败', err);
+  }
+}
+
+// 查看更多留言
+document.querySelector('.btn-more').addEventListener('click', async function() {
+  try {
+    const response = await fetch('http://localhost:3001/api/messages');
+    const result = await response.json();
+    if (result.code === 200) {
+      // 示例：简单渲染留言列表（可根据需求优化）
+      const messageList = document.querySelector('.message-items');
+      messageList.innerHTML = ''; // 清空原有内容
+      
+      result.data.forEach(item => {
+        const messageItem = document.createElement('div');
+        messageItem.className = 'message-item';
+        messageItem.innerHTML = `
+          <div class="message-header">
+            <img src="https://picsum.photos/id/${item.id}/50/50" alt="用户头像" class="user-avatar">
+            <div class="user-info">
+              <h4>${item.username}</h4>
+              <span class="message-time">${formatTime(item.create_time)}</span>
+            </div>
+            <span class="message-tag">${item.subject}</span>
+          </div>
+          <div class="message-content">
+            <p>${item.content}</p>
+          </div>
+          ${item.reply_content ? `
+            <div class="message-reply">
+              <div class="reply-header">
+                <img src="https://picsum.photos/id/29/50/50" alt="管理员头像" class="admin-avatar">
+                <h4>食遇小编</h4>
+              </div>
+              <div class="reply-content">
+                <p>${item.reply_content}</p>
+              </div>
+            </div>
+          ` : ''}
+        `;
+        messageList.appendChild(messageItem);
+      });
+      
+      alert('已加载所有留言！');
+    }
+  } catch (err) {
+    alert('获取留言失败，请稍后重试');
+    console.error(err);
+  }
+});
+
+// 时间格式化工具函数
+function formatTime(timeStr) {
+  if (!timeStr) return '';
+  const date = new Date(timeStr);
+  return `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+}
+
+// 页面加载时初始化验证码
+window.onload = function() {
+  // 在验证码容器处新增隐藏字段存储captchaId
+  const verifyContainer = document.querySelector('.verify-container');
+  const captchaIdInput = document.createElement('input');
+  captchaIdInput.type = 'hidden';
+  captchaIdInput.id = 'captchaId';
+  verifyContainer.appendChild(captchaIdInput);
+  
+  // 初始化验证码
+  refreshCaptcha();
+  
+  // 点击验证码图片刷新
+  document.getElementById('verifyCodeImg').addEventListener('click', refreshCaptcha);
+};
     </script>
 </body>
 </html>

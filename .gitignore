@@ -1,0 +1,22 @@
+# 依赖文件夹
+node_modules/
+
+# 环境变量文件（若后续用.env存密码）
+.env
+.env.local
+
+# 日志文件
+*.log
+
+# IDE配置
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 系统文件
+.DS_Store
+Thumbs.db
