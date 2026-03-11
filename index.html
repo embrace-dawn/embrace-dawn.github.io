@@ -405,6 +405,13 @@
 
     <script src="js/script.js"></script>
     <script>
+        // 英文转中文（把里面的英文/中文改成你实际的）
+const subMap = {
+  "story": "美食故事分享",
+  "suggest": "内容建议",
+  "analysis": "美食解析探讨",
+  "cook": "烹饪技巧交流"
+};
        // 留言表单提交
 document.getElementById('messageForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -485,7 +492,7 @@ document.querySelector('.btn-more').addEventListener('click', async function() {
               <h4>${item.username}</h4>
               <span class="message-time">${formatTime(item.create_time)}</span>
             </div>
-            <span class="message-tag">${item.subject}</span>
+            <span class="message-tag">${subMap[item.subject] || item.subject}</span>
           </div>
           <div class="message-content">
             <p>${item.content}</p>
