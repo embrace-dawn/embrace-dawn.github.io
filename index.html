@@ -334,6 +334,39 @@
                         </div>
                     </div>
                     <button class="btn btn-more">查看更多留言</button>
+                    <!-- 管理员回复模块 -->
+<div class="admin-reply" style="margin: 30px auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; max-width: 800px; background: #f9f9f9;">
+  <h3 style="margin: 0 0 20px 0; color: #333; font-size: 18px;">📝 回复</h3>
+  
+  <!-- 留言ID输入框 -->
+  <div style="margin-bottom: 15px;">
+    <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">留言ID：</label>
+    <input 
+      type="number" 
+      id="replyMessageId" 
+      placeholder="请输入要回复的留言ID（如1、2）" 
+      style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box;"
+    >
+  </div>
+  
+  <!-- 回复内容输入框 -->
+  <div style="margin-bottom: 15px;">
+    <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">回复内容：</label>
+    <textarea 
+      id="replyContent" 
+      placeholder="请输入对该留言的回复..." 
+      style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; min-height: 100px; box-sizing: border-box; resize: vertical;"
+    ></textarea>
+  </div>
+  
+  <!-- 提交按钮 -->
+  <button 
+    id="submitReply" 
+    style="padding: 10px 24px; background: #2196F3; color: white; border: none; border-radius: 4px; font-size: 14px; cursor: pointer; transition: background 0.2s;"
+  >
+    提交回复
+  </button>
+</div>
                 </div>
             </div>
         </div>
@@ -432,6 +465,7 @@ async function refreshCaptcha() {
 }
 
 // 查看更多留言
+
 document.querySelector('.btn-more').addEventListener('click', async function() {
   try {
     const response = await fetch('http://localhost:3001/api/messages');
@@ -501,6 +535,63 @@ window.onload = function() {
   // 点击验证码图片刷新
   document.getElementById('verifyCodeImg').addEventListener('click', refreshCaptcha);
 };
+// ---------------------- 管理员回复功能 ----------------------
+// 提交回复按钮点击事件
+document.getElementById('submitReply').addEventListener('click', async function() {
+  // 1. 获取输入值
+  const messageId = document.getElementById('replyMessageId').value.trim();
+  const replyContent = document.getElementById('replyContent').value.trim();
+
+  // 2. 前端校验
+  if (!messageId) {
+    alert('⚠️ 请输入留言ID！');
+    document.getElementById('replyMessageId').focus(); // 光标定位到ID输入框
+    return;
+  }
+  if (!replyContent) {
+    alert('⚠️ 请输入回复内容！');
+    document.getElementById('replyContent').focus(); // 光标定位到内容输入框
+    return;
+  }
+
+  // 3. 禁用按钮，避免重复提交
+  this.disabled = true;
+  this.innerText = '提交中...';
+
+  try {
+    // 4. 调用后端回复接口
+    const response = await fetch('http://localhost:3001/api/message/reply', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' // 告诉后端请求体是JSON格式
+      },
+      body: JSON.stringify({
+        messageId: Number(messageId), // 转为数字（避免字符串ID）
+        replyContent: replyContent
+      })
+    });
+
+    // 5. 解析后端返回结果
+    const result = await response.json();
+    if (result.code === 200) {
+      alert('✅ 回复成功！');
+      // 清空输入框
+      document.getElementById('replyMessageId').value = '';
+      document.getElementById('replyContent').value = '';
+      // 自动刷新留言列表，显示最新回复
+      document.querySelector('.btn-more').click();
+    } else {
+      alert('❌ 回复失败：' + result.message);
+    }
+  } catch (err) {
+    alert('❌ 网络错误，请检查后端服务是否启动！');
+    console.error('回复接口调用失败：', err);
+  } finally {
+    // 6. 恢复按钮状态
+    this.disabled = false;
+    this.innerText = '提交回复';
+  }
+});
     </script>
 </body>
 </html>

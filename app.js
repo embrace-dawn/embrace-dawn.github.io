@@ -139,10 +139,11 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-// 4. 回复留言接口（管理员用，示例）
+// 4. 回复留言接口（管理员用，优化版）
 app.post('/api/message/reply', async (req, res) => {
   const { messageId, replyContent } = req.body;
 
+  // 1. 基础参数校验
   if (!messageId || !replyContent) {
     return res.send({
       code: 400,
@@ -151,6 +152,20 @@ app.post('/api/message/reply', async (req, res) => {
   }
 
   try {
+    // 2. 先查询留言是否存在
+    const [rows] = await pool.execute(
+      'SELECT id FROM messages WHERE id = ?',
+      [messageId]
+    );
+
+    if (rows.length === 0) {
+      return res.send({
+        code: 400,
+        message: '留言ID不存在，请检查ID是否正确'
+      });
+    }
+
+    // 3. 存在则更新回复内容
     await pool.execute(
       'UPDATE messages SET reply_content = ?, reply_time = CURRENT_TIMESTAMP WHERE id = ?',
       [replyContent, messageId]
