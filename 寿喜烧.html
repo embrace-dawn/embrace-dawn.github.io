@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寿喜烧 - 日式锅物的温柔滋味</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #fff;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d35400;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            float: right;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #d35400;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        .hero .divider {
+            width: 80px;
+            height: 4px;
+            background-color: #e67e22;
+            margin: 0 auto 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+        .food-overview {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .food-img {
+            width: 40%;
+            object-fit: cover;
+        }
+        .food-content {
+            width: 60%;
+            padding: 2.5rem;
+        }
+        .food-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .food-desc {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .section h3 {
+            font-size: 1.8rem;
+            color: #d35400;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #d35400;
+            padding-left: 1rem;
+        }
+        .section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .section li {
+            margin-bottom: 0.6rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .food-overview {
+                flex-direction: column;
+            }
+            .food-img, .food-content {
+                width: 100%;
+            }
+            nav ul {
+                float: none;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">食遇 · 美食解析</div>
+    <ul>
+        <li><a href="#overview">菜品概览</a></li>
+        <li><a href="#ingredients">食材与风味</a></li>
+        <li><a href="#culture">历史文化</a></li>
+        <li><a href="#recipe">家常做法</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>美食解析</h1>
+    <div class="divider"></div>
+    <p>从食材、工艺、文化多角度解析美食的魅力</p>
+</div>
+
+<div class="container">
+    <div class="food-overview" id="overview">
+        <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.3tDTtP8EgRmjcl0rBOY4AAHaEv?rs=1&pid=ImgDetMain&o=7&rm=3" alt="寿喜烧" class="food-img">
+        <div class="food-content">
+            <h2>寿喜烧：日式锅物的温柔滋味</h2>
+            <div class="tags">
+                <span class="tag">日式料理</span>
+                <span class="tag">关东/关西风味</span>
+                <span class="tag">牛肉锅物</span>
+            </div>
+            <p class="food-desc">
+                寿喜烧是日本经典的甜咸口味牛肉火锅，以酱油、味醂、糖、昆布柴鱼高汤为基底，
+                搭配上等肥牛、蔬菜、豆腐、香菇，边煮边吃，口感温润香甜，搭配生鸡蛋食用更是灵魂吃法。
+            </p>
+            <a href="#recipe" style="color: #d35400; text-decoration: none; font-weight: 500;">查看家常做法 →</a>
+        </div>
+    </div>
+
+    <div class="section" id="ingredients">
+        <h3>🥩 核心食材与风味</h3>
+        <h4>✅ 必备食材</h4>
+        <ul>
+            <li>肥牛/和牛：油脂丰富，入口即化</li>
+            <li>洋葱、大葱：增香提味</li>
+            <li>香菇、金针菇、杏鲍菇：提升鲜度</li>
+            <li>北豆腐/油豆腐：吸满汤汁超入味</li>
+            <li>白菜、茼蒿、魔芋丝：清爽解腻</li>
+            <li>生鸡蛋：日式专用，蘸料降温、柔化口感</li>
+        </ul>
+        <h4>🔥 汤底灵魂</h4>
+        <ol>
+            <li>酱油：咸鲜底色</li>
+            <li>味醂：甜香柔和</li>
+            <li>白砂糖/冰糖：提升甜感</li>
+            <li>昆布柴鱼高汤：天然鲜味</li>
+            <li>清酒：去腥增香</li>
+        </ol>
+    </div>
+
+    <div class="section" id="culture">
+        <h3>📜 历史与文化</h3>
+        <p>
+            寿喜烧起源于日本农家的“锄焼”，早期农民用农具铁板烤肉，后来逐渐演变成火锅形式。
+            明治维新后，牛肉普及，寿喜烧成为日式高级锅物代表。
+        </p>
+        <p>
+            日本分为关东与关西两大流派：关东以酱汁汤底煮制，关西先煎肉再调味煮菜。
+            如今寿喜烧已是日式居酒屋、家庭聚餐的经典料理，象征温暖、团圆与精致饮食文化。
+        </p>
+    </div>
+
+    <div class="section" id="recipe">
+        <h3>👩‍🍳 家常寿喜烧做法</h3>
+        <ol>
+            <li>调汤底：酱油4勺 + 味醂3勺 + 清酒2勺 + 糖1勺 + 高汤半碗，搅匀备用</li>
+            <li>热锅放少许黄油或油，下洋葱、大葱炒出香味</li>
+            <li>放入肥牛片，煎至半熟，倒入调好的寿喜烧汁</li>
+            <li>依次放入香菇、豆腐、蔬菜，小火煮5–8分钟</li>
+            <li>食材煮熟即可，蘸打散的无菌生鸡蛋食用，口感更滑嫩</li>
+        </ol>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 食遇 · 美食解析 | 探寻中华与世界美食的故事</p>
+</footer>
+
+</body>
+</html>

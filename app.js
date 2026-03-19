@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { body, validationResult } = require('express-validator');
 const svgCaptcha = require('svg-captcha');
 const pool = require('./config/db');
+const crypto = require('crypto');
 
 const app = express();
 const PORT = 3001;
@@ -15,6 +16,24 @@ app.use(bodyParser.urlencoded({ extended: true })); // 解析表单请求体
 
 // 存储验证码（生产环境建议用Redis，这里临时用内存）
 const captchaStore = new Map();
+// 存储管理员 token（生产环境建议用 Redis，这里用内存 Map）
+const adminTokenStore = new Map();
+
+// 验证管理员 token 的中间件
+function verifyAdminToken(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.send({ code: 401, message: '未提供管理员凭证' });
+  }
+  const token = authHeader.split(' ')[1];
+  const tokenInfo = adminTokenStore.get(token);
+  if (!tokenInfo || tokenInfo.expire < Date.now()) {
+    adminTokenStore.delete(token); // 删除过期 token
+    return res.send({ code: 401, message: '登录已过期，请重新登录' });
+  }
+  // token 有效，继续执行后续路由
+  next();
+}
 
 // 1. 生成验证码接口
 app.get('/api/captcha', (req, res) => {
@@ -27,6 +46,29 @@ app.get('/api/captcha', (req, res) => {
     width: 100,
     height: 45
   });
+
+  // 管理员登录接口
+app.post('/api/admin/login', (req, res) => {
+  const { username, password } = req.body;
+  // 这里写死管理员账号，你可以根据需要修改（例如从数据库读取）
+  if (username === 'admin' && password === 'admin123') {
+    // 生成随机 token（16字节的十六进制字符串）
+    const token = crypto.randomBytes(16).toString('hex');
+    // 存储 token，有效期 1 小时
+    adminTokenStore.set(token, {
+      admin: true,
+      expire: Date.now() + 60 * 60 * 1000 // 1小时后过期
+    });
+    // 清理过期 token（可选）
+    for (const [key, value] of adminTokenStore.entries()) {
+      if (value.expire < Date.now()) adminTokenStore.delete(key);
+    }
+    return res.send({ code: 200, message: '登录成功', data: { token } });
+  }
+  res.send({ code: 400, message: '用户名或密码错误' });
+});
+
+
 
   // 生成唯一ID（前端用这个ID验证）
   const captchaId = Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -139,8 +181,19 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
+// 管理员退出接口（需要 token）
+app.post('/api/admin/logout', verifyAdminToken, (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.send({ code: 401, message: '未提供管理员凭证' });
+  }
+  const token = authHeader.split(' ')[1];
+  adminTokenStore.delete(token); // 从存储中删除 token
+  res.send({ code: 200, message: '退出成功' });
+});
+
 // 4. 回复留言接口（管理员用，优化版）
-app.post('/api/message/reply', async (req, res) => {
+app.post('/api/message/reply',verifyAdminToken, async (req, res) => {
   const { messageId, replyContent } = req.body;
 
   // 1. 基础参数校验

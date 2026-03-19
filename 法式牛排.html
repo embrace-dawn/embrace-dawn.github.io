@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法式牛排 - 法式料理的经典仪式感</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #fff;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d35400;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            float: right;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #d35400;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        .hero .divider {
+            width: 80px;
+            height: 4px;
+            background-color: #e67e22;
+            margin: 0 auto 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+        .food-overview {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .food-img {
+            width: 40%;
+            object-fit: cover;
+        }
+        .food-content {
+            width: 60%;
+            padding: 2.5rem;
+        }
+        .food-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .food-desc {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .section h3 {
+            font-size: 1.8rem;
+            color: #d35400;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #d35400;
+            padding-left: 1rem;
+        }
+        .section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .section li {
+            margin-bottom: 0.6rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .food-overview {
+                flex-direction: column;
+            }
+            .food-img, .food-content {
+                width: 100%;
+            }
+            nav ul {
+                float: none;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">食遇 · 美食解析</div>
+    <ul>
+        <li><a href="#overview">菜品概览</a></li>
+        <li><a href="#ingredients">食材与火候</a></li>
+        <li><a href="#culture">历史文化</a></li>
+        <li><a href="#recipe">家常做法</a></li>
+    </ul>
+</nav>
+<div class="hero">
+    <h1>美食解析</h1>
+    <div class="divider"></div>
+    <p>从食材、工艺、文化多角度解析美食的魅力</p>
+</div>
+
+<div class="container">
+    <div class="food-overview" id="overview">
+        <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.zSRUToQT-JD76Q5hQUv6CgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="法式牛排" class="food-img">
+        <div class="food-content">
+            <h2>法式牛排：法式料理的经典仪式感</h2>
+            <div class="tags">
+                <span class="tag">法式料理</span>
+                <span class="tag">煎制工艺</span>
+                <span class="tag">高端食材</span>
+            </div>
+            <p class="food-desc">
+                法式牛排是法式料理的灵魂菜品，核心在于对食材的极致挑剔和火候的精准把控。选用优质原切牛排，
+                以黄油煎制锁汁，搭配黑胡椒、海盐提味，外焦里嫩，汁水充盈，搭配红酒汁或黑松露酱，尽显法式精致与浪漫。
+            </p>
+            <a href="#recipe" style="color: #d35400; text-decoration: none; font-weight: 500;">查看家常做法 →</a>
+        </div>
+    </div>
+
+    <div class="section" id="ingredients">
+        <h3>🥩 核心食材与火候把控</h3>
+        <h4>✅ 必备食材</h4>
+        <ul>
+            <li>原切牛排：菲力、西冷、眼肉为佳，厚度2-3cm，保证汁水充盈</li>
+            <li>黄油：煎制增香，锁汁提味，优选无盐黄油</li>
+            <li>海盐、现磨黑胡椒：基础调味，凸显牛肉本身鲜味</li>
+            <li>迷迭香、百里香、大蒜：法式经典香料，去腥增香</li>
+            <li>红酒/黑松露酱：搭配食用，提升风味层次（可选）</li>
+        </ul>
+        <h4>🔥 火候与熟度把控（关键）</h4>
+        <ol>
+            <li>醒肉：牛排从冰箱取出，室温放置30分钟，避免内外温差过大导致煎制不均</li>
+            <li>煎前处理：用厨房纸吸干表面水分，撒少许海盐和黑胡椒腌制5分钟</li>
+            <li>煎制火候：平底锅烧至冒烟，放少许橄榄油，放入牛排，中火煎制（菲力煎2-3分钟/面，西冷3-4分钟/面）</li>
+            <li>锁汁步骤：煎制中途加入黄油、迷迭香、大蒜，用勺子不断舀黄油淋在牛排上</li>
+            <li>静置醒肉：煎好后取出，用锡纸松松包裹，静置5分钟，让汁水回流</li>
+        </ol>
+    </div>
+
+    <div class="section" id="culture">
+        <h3>📜 历史与文化</h3>
+        <p>
+            法式牛排的历史可追溯至中世纪的法国贵族餐桌，当时贵族们追求食材的本味与烹饪的精致，牛排作为高蛋白食材，
+            被配以简单的调味和精准的煎制，成为贵族宴会的核心菜品。
+        </p>
+        <p>
+            随着法式料理的普及，法式牛排逐渐走向大众，成为世界高端料理的代表之一。法式牛排的精髓在于“尊重食材本味”，
+            不追求复杂调味，以精准的火候凸显牛肉的鲜嫩，搭配红酒的吃法，更成为法式浪漫饮食文化的象征，是法式料理“少而精”的生动体现。
+        </p>
+    </div>
+
+    <div class="section" id="recipe">
+        <h3>👩‍🍳 家常法式牛排做法</h3>
+        <ol>
+            <li>醒肉与腌制：原切牛排室温放置30分钟，吸干表面水分，撒海盐、现磨黑胡椒，涂抹少许橄榄油，静置5分钟</li>
+            <li>预热平底锅：平底锅烧至冒烟，倒入少许橄榄油，放入牛排，中火煎制</li>
+            <li>煎制与锁汁：单面煎3分钟（喜欢五分熟），翻面再煎2-3分钟，中途加入黄油、迷迭香、大蒜，不断舀黄油淋在牛排上</li>
+            <li>醒肉：煎好后取出，用锡纸包裹，静置5分钟，让汁水回流</li>
+            <li>搭配食用：切片装盘，淋少许融化的黄油或黑胡椒酱，搭配煎芦笋、土豆泥即可</li>
+        </ol>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 食遇 · 美食解析 | 探寻中华与世界美食的故事</p>
+</footer>
+
+</body>
+</html>

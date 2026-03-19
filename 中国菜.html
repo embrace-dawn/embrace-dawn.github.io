@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国菜 - 中华饮食文化详解</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", 微软雅黑, "SimSun", 宋体, sans-serif;
+        }
+
+        /* 页面基础样式 */
+        body {
+            background-color: #f9f7f3;
+            color: #333;
+            line-height: 1.8;
+            padding-bottom: 3rem;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #d62828, #f77f00);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .header-desc {
+            font-size: 1.2rem;
+            font-weight: normal;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 内容容器 */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 章节样式 */
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            color: #d62828;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1e0d0;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* 菜系列表样式 */
+        .cuisine-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cuisine-card {
+            border: 1px solid #f1e0d0;
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cuisine-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cuisine-name {
+            font-size: 1.3rem;
+            color: #c1292e;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .cuisine-feature {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* 特点列表样式 */
+        .feature-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #d62828;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 引用样式 */
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #d62828;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #fef5f0;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <h1>中国菜 - 中华饮食文化瑰宝</h1>
+        <p class="header-desc">中国菜是中国各地区、各民族菜肴的总称，历经数千年发展，形成了博大精深的饮食文化体系</p>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="content-container">
+        <!-- 中国菜概述 -->
+        <section class="section">
+            <h2 class="section-title">一、中国菜的整体概述</h2>
+            <div class="section-content">
+                <p>中国菜（Chinese Cuisine）又称中餐，是世界三大菜系（中国菜、法国菜、土耳其菜）之一，也是东方饮食文化的核心。它不仅是简单的食物制作，更是融合了烹饪技艺、饮食礼仪、地域文化、哲学思想的综合文化体系。</p>
+                <p>中国菜的发展始于新石器时代，历经商周的初步成型、唐宋的繁荣发展、明清的鼎盛完善，形成了如今“色、香、味、形、器、意”俱全的特点，讲究“五味调和”“食医同源”的饮食理念。</p>
+                
+                <div class="quote">
+                    “民以食为天”——《汉书·郦食其传》，充分体现了饮食在中国文化中的重要地位。
+                </div>
+            </div>
+        </section>
+
+        <!-- 中国菜的核心特点 -->
+        <section class="section">
+            <h2 class="section-title">二、中国菜的核心特点</h2>
+            <div class="section-content">
+                <p>中国菜之所以享誉世界，核心在于其独特的烹饪理念和技艺特点：</p>
+                <ul class="feature-list">
+                    <li><strong>风味多样</strong>：中国地域辽阔，气候、物产、风俗差异大，形成了咸、甜、酸、辣、麻、鲜等多种口味，满足不同地域人群的饮食需求。</li>
+                    <li><strong>技法精湛</strong>：烹饪技法多达几十种，核心包括炒、爆、熘、炸、烹、煎、贴、烧、焖、炖、蒸、煮、烩、烤、卤、拌等，每种技法都有严格的操作要求。</li>
+                    <li><strong>讲究搭配</strong>：注重食材的性味搭配、色彩搭配、营养搭配，追求“荤素平衡”“寒热调和”，兼顾口感与健康。</li>
+                    <li><strong>注重意境</strong>：不仅追求味觉享受，还讲究菜品的造型、摆盘、命名，如“佛跳墙”“松鼠鳜鱼”等，赋予菜品文化内涵。</li>
+                    <li><strong>食医同源</strong>：许多食材兼具食用和药用价值，烹饪时注重食补，如红枣补气、枸杞明目、山药养胃等。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 主要菜系介绍 -->
+        <section class="section">
+            <h2 class="section-title">三、中国八大菜系</h2>
+            <div class="section-content">
+                <p>中国菜最具代表性的是“八大菜系”，各菜系风格迥异，各有特色：</p>
+                
+                <div class="cuisine-list">
+                    <!-- 川菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">川菜（四川）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：麻辣鲜香、一菜一格、百菜百味<br>
+                        <strong>代表菜品</strong>：麻婆豆腐、水煮鱼、回锅肉、宫保鸡丁<br>
+                        <strong>口味精髓</strong>：善用辣椒、花椒、豆瓣酱，注重麻、辣、鲜、香的融合</p>
+                    </div>
+
+                    <!-- 鲁菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">鲁菜（山东）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：咸鲜为主、火候精湛、技法全面<br>
+                        <strong>代表菜品</strong>：葱烧海参、九转大肠、糖醋鲤鱼<br>
+                        <strong>地位</strong>：八大菜系之首，是宫廷菜的重要基础</p>
+                    </div>
+
+                    <!-- 粤菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">粤菜（广东）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：清鲜爽滑、原汁原味、选料广博<br>
+                        <strong>代表菜品</strong>：白切鸡、清蒸石斑鱼、叉烧包、烧鹅<br>
+                        <strong>分支</strong>：广府菜、潮汕菜、客家菜</p>
+                    </div>
+
+                    <!-- 苏菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">苏菜（江苏）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：清鲜平和、咸甜适中、刀工精细<br>
+                        <strong>代表菜品</strong>：松鼠鳜鱼、盐水鸭、狮子头、大煮干丝<br>
+                        <strong>分支</strong>：淮扬菜、金陵菜、苏锡菜</p>
+                    </div>
+
+                    <!-- 浙菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">浙菜（浙江）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：清鲜脆嫩、清淡雅致、注重本味<br>
+                        <strong>代表菜品</strong>：西湖醋鱼、东坡肉、龙井虾仁<br>
+                        <strong>分支</strong>：杭帮菜、宁波菜、温州菜</p>
+                    </div>
+
+                    <!-- 闽菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">闽菜（福建）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：鲜香酸甜、注重汤品、擅长红糟调味<br>
+                        <strong>代表菜品</strong>：佛跳墙、荔枝肉、醉排骨<br>
+                        <strong>特色</strong>：汤菜居八大菜系之首</p>
+                    </div>
+
+                    <!-- 湘菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">湘菜（湖南）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：香辣浓郁、重油重色、注重腊味<br>
+                        <strong>代表菜品</strong>：剁椒鱼头、辣椒炒肉、毛氏红烧肉<br>
+                        <strong>口味</strong>：辣而不燥，注重香鲜</p>
+                    </div>
+
+                    <!-- 徽菜 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">徽菜（安徽）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：重油重色、咸鲜微辣、擅长烧炖<br>
+                        <strong>代表菜品</strong>：臭鳜鱼、毛豆腐、黄山炖鸽<br>
+                        <strong>特色</strong>：善用山珍野味，注重火功</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化意义 -->
+        <section class="section">
+            <h2 class="section-title">四、中国菜的文化意义</h2>
+            <div class="section-content">
+                <p>中国菜早已超越了“果腹”的基本功能，成为中华文化的重要载体：</p>
+                <ul class="feature-list">
+                    <li>是人际交往的重要纽带：逢年过节、亲友相聚、商务宴请都离不开饮食，“饭局”是中国社交的重要形式。</li>
+                    <li>是地域文化的体现：不同菜系的特点反映了当地的自然环境、物产资源和生活习惯。</li>
+                    <li>是非遗文化的重要组成：许多烹饪技艺被列入国家级非物质文化遗产保护名录。</li>
+                    <li>是中外文化交流的桥梁：中国菜遍布全球，成为世界了解中国文化的重要窗口。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
