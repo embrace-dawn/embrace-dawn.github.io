@@ -21,12 +21,27 @@
                 <li><a href="#analysis">美食解析</a></li>
                 <li><a href="#cook">美食教程</a></li>
                 <li><a href="#message">留言互动</a></li>
+                <li></li><div class="theme-switch" style="margin-right: 15px;">
+                     <button id="themeToggle" class="btn-sm" style="background: transparent; border: 1px solid #e67e22; color: #e67e22; display: flex; align-items: center; gap: 5px;">
+                        <i class="fas fa-moon"></i>
+                        <span>暗色</span>
+                         </button>
+                    </div></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
+
+    <!-- 在导航栏后面添加这两个元素 -->
+<div id="welcomeMessage" style="margin-top: 70px; text-align: center; padding: 15px; background: var(--bg-secondary); font-size: 20px; font-weight: 500; color: var(--primary); border-bottom: 1px solid var(--border-color);">
+    <!-- 打字机效果 -->
+</div>
+
+<div id="dailyRecommend" style="background: linear-gradient(135deg, #e67e22, #f39c12); color: white; padding: 12px; text-align: center; font-size: 16px; font-weight: 500; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+    <!-- 每日推荐 -->
+</div>
 
     <!-- 首页轮播 -->
     <section id="home" class="banner">
@@ -385,6 +400,90 @@
             </div>
         </div>
     </section>
+
+<!-- ===== 美食猜谜游戏 ===== -->
+<div class="food-quiz-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 0;">
+    <div class="container">
+        <div class="section-header" style="color: white;">
+            <h2 style="color: white;">🔍 美食猜谜</h2>
+            <p style="color: rgba(255,255,255,0.8);">每天一道谜语，考考你是不是真吃货</p>
+        </div>
+        
+        <div id="quizContainer" style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <!-- 谜语内容会动态显示 -->
+            <div id="quizLoading" style="text-align: center;">加载谜语中...</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 美食日记本 ===== -->
+<div class="food-diary-section section" style="background: var(--bg-primary);">
+    <div class="container">
+        <div class="section-header">
+            <h2>📔 我的美食日记</h2>
+            <p>记录你尝试过的每一道菜，留下你的烹饪心得</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <!-- 左侧：写日记 -->
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 15px; box-shadow: var(--shadow);">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">✍️ 写新记录</h3>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500;">菜名</label>
+                    <input type="text" id="diaryDishName" placeholder="例如：红烧肉" 
+                        style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500;">评分</label>
+                    <div id="ratingStars" style="font-size: 30px; color: #f39c12; cursor: pointer;">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                    <input type="hidden" id="diaryRating" value="0">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500;">心得笔记</label>
+                    <textarea id="diaryNotes" rows="4" placeholder="今天做得怎么样？有什么心得？..." 
+                        style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px;"></textarea>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500;">是否成功</label>
+                    <select id="diarySuccess" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px;">
+                        <option value="success">✅ 成功，很好吃</option>
+                        <option value="ok">👍 还行，下次改进</option>
+                        <option value="fail">😅 翻车了，继续努力</option>
+                    </select>
+                </div>
+                
+                <button id="saveDiaryBtn" class="btn" style="width: 100%;">保存记录</button>
+            </div>
+            
+            <!-- 右侧：日记列表 -->
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 15px; box-shadow: var(--shadow);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary);">📋 我的烹饪记录</h3>
+                    <button id="clearDiaryBtn" class="btn-sm" style="background: #e74c3c;">清空所有</button>
+                </div>
+                
+                <div id="diaryList" style="max-height: 400px; overflow-y: auto;">
+                    <!-- 日记列表会动态显示 -->
+                    <div style="text-align: center; color: var(--text-secondary); padding: 20px;">加载中...</div>
+                </div>
+                
+                <div style="margin-top: 15px; text-align: right; color: var(--text-secondary);">
+                    总计: <span id="diaryCount">0</span> 道菜
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- 页脚 -->
     <footer class="footer">
@@ -760,6 +859,393 @@ window.addEventListener('DOMContentLoaded', function() {
     console.warn('未找到退出登录按钮，请检查DOM结构是否正确'); // 新增提示，方便定位DOM问题
   }
 });
+
+// ===== 暗色模式切换（超简单版）=====
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+const themeSpan = themeToggle.querySelector('span');
+
+// 检查本地存储
+if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.className = 'fas fa-sun';
+    themeSpan.innerText = '亮色';
+}
+
+// 点击切换
+themeToggle.addEventListener('click', () => {
+    if (document.documentElement.hasAttribute('data-theme')) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('darkMode', 'false');
+        themeIcon.className = 'fas fa-moon';
+        themeSpan.innerText = '暗色';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('darkMode', 'true');
+        themeIcon.className = 'fas fa-sun';
+        themeSpan.innerText = '亮色';
+    }
+});
+
+// 在 script 标签内添加
+// ===== 功能十：打字机欢迎语 =====
+(function() {
+    const messages = ['🍜 今天想吃什么？', '👨‍🍳 一起学做美食吧', '🌟 发现你的拿手菜', '🍳 厨房小白也能变大厨', '🥘 唯有美食不可辜负'];
+    const welcomeEl = document.getElementById('welcomeMessage');
+    if (!welcomeEl) return;
+    
+    let msgIndex = 0, charIndex = 0, isDeleting = false, timeout;
+    
+    function typeEffect() {
+        const currentMsg = messages[msgIndex];
+        if (isDeleting) {
+            welcomeEl.innerHTML = '✨ ' + currentMsg.substring(0, charIndex - 1) + ' ✨';
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                msgIndex = (msgIndex + 1) % messages.length;
+                timeout = setTimeout(typeEffect, 500);
+            } else {
+                timeout = setTimeout(typeEffect, 50);
+            }
+        } else {
+            welcomeEl.innerHTML = '✨ ' + currentMsg.substring(0, charIndex + 1) + ' ✨';
+            charIndex++;
+            if (charIndex === currentMsg.length) {
+                isDeleting = true;
+                timeout = setTimeout(typeEffect, 2000);
+            } else {
+                timeout = setTimeout(typeEffect, 100);
+            }
+        }
+    }
+    typeEffect();
+})();
+
+// ===== 功能八：今日推荐 =====
+(function() {
+    const weeklyRecipes = {
+        0: { name: '🍖 红烧肉', desc: '周末吃肉，快乐加倍！' },
+        1: { name: '🥬 白灼青菜', desc: '周一清淡，养养胃' },
+        2: { name: '🍅 番茄炒蛋', desc: '国民家常菜，百吃不厌' },
+        3: { name: '🥔 酸辣土豆丝', desc: '周三提神，酸辣开胃' },
+        4: { name: '🍲 鸡汤', desc: '周四暖身，暖暖的' },
+        5: { name: '🍕 披萨', desc: '周五预热，周末来啦' },
+        6: { name: '🍲 火锅', desc: '周六狂欢，热热闹闹' }
+    };
+    
+    const today = new Date().getDay();
+    const recipe = weeklyRecipes[today];
+    const banner = document.getElementById('dailyRecommend');
+    if (banner) {
+        banner.innerHTML = `🍳 <strong>今日推荐：${recipe.name}</strong> ${recipe.desc} 🍳`;
+    }
+})();
+
+// ===== 功能十四：美食猜谜游戏 =====
+(function() {
+    // 谜语数据库（可以随意添加更多）
+    const quizDatabase = [
+        { 
+            question: "外面是白的，里面是黄的，吃起来脆脆的，蘸酱油最好吃？", 
+            answer: "油条", 
+            hint: "早餐常吃，配豆浆",
+            funFact: "油条最早叫'油炸桧'，和秦桧有关哦"
+        },
+        { 
+            question: "一个小胖子，穿着绿衣裳，开水里面洗个澡，变成红胖子？", 
+            answer: "虾", 
+            hint: "海鲜，熟了会变色",
+            funFact: "虾的心脏在头部，不是在胸部"
+        },
+        { 
+            question: "白白胖胖像元宝，过年家家少不了？", 
+            answer: "饺子", 
+            hint: "春节必吃，形状像元宝",
+            funFact: "饺子在古代叫'娇耳'，是张仲景发明的"
+        },
+        { 
+            question: "生在水中，长在水中，捞出来香喷喷？", 
+            answer: "粽子", 
+            hint: "端午节食品，用竹叶包",
+            funFact: "最早粽子是牛角形状，用来祭祀"
+        },
+        { 
+            question: "黄澄澄的坛子，装满水晶饺子，吃掉水晶饺子，吐出黄坛子？", 
+            answer: "橘子", 
+            hint: "水果，剥皮吃",
+            funFact: "橘子表面的白丝叫橘络，可以化痰"
+        },
+        { 
+            question: "麻屋子，红帐子，里面住个白胖子？", 
+            answer: "花生", 
+            hint: "坚果类，外壳硬",
+            funFact: "花生不是坚果，是豆科植物"
+        },
+        { 
+            question: "兄弟七八个，围着柱子坐，大家一分手，衣服就扯破？", 
+            answer: "大蒜", 
+            hint: "调味品，一瓣一瓣的",
+            funFact: "大蒜切开后放10分钟再吃，营养更好"
+        },
+        { 
+            question: "一个小姑娘，生在水中央，身穿粉红衫，坐在绿船上？", 
+            answer: "荷花", 
+            hint: "花，可以吃",
+            funFact: "荷花全身都是宝，根茎叶花都能吃"
+        }
+    ];
+    
+    // 根据日期选择今天的谜语（确保每天固定）
+    const today = new Date();
+    const dateString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+    // 简单的哈希函数
+    const hash = dateString.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+    const todaysQuiz = quizDatabase[hash % quizDatabase.length];
+    
+    // 渲染谜语界面
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    
+    container.innerHTML = `
+        <div style="text-align: center;">
+            <div style="font-size: 50px; margin-bottom: 20px;">❓</div>
+            <h3 style="color: white; margin-bottom: 30px; line-height: 1.6;">${todaysQuiz.question}</h3>
+            
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="quizAnswer" placeholder="输入你的答案" 
+                    style="width: 70%; padding: 12px; border: none; border-radius: 25px; font-size: 16px; text-align: center;">
+            </div>
+            
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                <button id="submitQuiz" class="btn" style="background: #f1c40f; color: #2c3e50;">提交答案</button>
+                <button id="showHint" class="btn" style="background: transparent; border: 2px solid white; color: white;">提示</button>
+            </div>
+            
+            <div id="quizMessage" style="min-height: 60px; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.2); color: white;"></div>
+            
+            <div id="quizFunFact" style="margin-top: 20px; font-size: 14px; opacity: 0.8; font-style: italic;"></div>
+        </div>
+    `;
+    
+    // 游戏状态
+    let hintUsed = false;
+    let answered = false;
+    
+    // 提交答案
+    document.getElementById('submitQuiz').addEventListener('click', function() {
+        if (answered) return;
+        
+        const userAnswer = document.getElementById('quizAnswer').value.trim().toLowerCase();
+        const correctAnswer = todaysQuiz.answer.toLowerCase();
+        const messageDiv = document.getElementById('quizMessage');
+        
+        // 简单的模糊匹配（包含关系）
+        const isCorrect = userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer);
+        
+        if (isCorrect) {
+            messageDiv.innerHTML = `
+                <div style="color: #2ecc71; font-size: 24px;">✅ 恭喜答对！</div>
+                <div style="margin-top: 10px;">你真是个美食家！</div>
+            `;
+            answered = true;
+            document.getElementById('quizFunFact').innerHTML = `💡 冷知识：${todaysQuiz.funFact}`;
+        } else {
+            messageDiv.innerHTML = `
+                <div style="color: #e74c3c;">❌ 不对哦，再想想～</div>
+            `;
+        }
+    });
+    
+    // 显示提示
+    document.getElementById('showHint').addEventListener('click', function() {
+        if (!hintUsed) {
+            document.getElementById('quizMessage').innerHTML = `
+                <div style="color: #f39c12;">💡 提示：${todaysQuiz.hint}</div>
+            `;
+            hintUsed = true;
+        } else {
+            document.getElementById('quizMessage').innerHTML = `
+                <div>已经给过提示啦，再想想？</div>
+            `;
+        }
+    });
+    
+    // 回车键提交
+    document.getElementById('quizAnswer').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            document.getElementById('submitQuiz').click();
+        }
+    });
+})();
+
+// ===== 功能十七：美食日记本 =====
+(function() {
+    // 初始化日记数据
+    let diaryEntries = [];
+    
+    // 从本地存储加载数据
+    try {
+        const saved = localStorage.getItem('foodDiary');
+        if (saved) {
+            diaryEntries = JSON.parse(saved);
+        }
+    } catch (e) {
+        console.log('加载日记失败', e);
+    }
+    
+    // 星星评分功能
+    const stars = document.querySelectorAll('#ratingStars .star');
+    const ratingInput = document.getElementById('diaryRating');
+    
+    if (stars.length) {
+        stars.forEach(star => {
+            star.addEventListener('mouseenter', function() {
+                const rating = parseInt(this.dataset.rating);
+                updateStars(rating, 'hover');
+            });
+            
+            star.addEventListener('mouseleave', function() {
+                const currentRating = parseInt(ratingInput.value);
+                updateStars(currentRating, 'normal');
+            });
+            
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                ratingInput.value = rating;
+                updateStars(rating, 'selected');
+            });
+        });
+    }
+    
+    function updateStars(rating, mode) {
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.innerHTML = '★';
+                star.style.color = '#f39c12';
+            } else {
+                star.innerHTML = '☆';
+                star.style.color = mode === 'hover' ? '#ccc' : '#f39c12';
+            }
+        });
+    }
+    
+    // 渲染日记列表
+    function renderDiary() {
+        const listDiv = document.getElementById('diaryList');
+        const countSpan = document.getElementById('diaryCount');
+        
+        if (!listDiv) return;
+        
+        if (diaryEntries.length === 0) {
+            listDiv.innerHTML = `
+                <div style="text-align: center; color: var(--text-secondary); padding: 40px;">
+                    📭 还没有记录，开始你的第一道菜吧！
+                </div>
+            `;
+            if (countSpan) countSpan.innerText = '0';
+            return;
+        }
+        
+        // 按时间倒序排列
+        const sorted = [...diaryEntries].sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        let html = '';
+        sorted.forEach((entry, index) => {
+            const successEmoji = entry.success === 'success' ? '✅' : (entry.success === 'ok' ? '👍' : '😅');
+            const successText = entry.success === 'success' ? '成功' : (entry.success === 'ok' ? '还行' : '翻车');
+            
+            html += `
+                <div style="padding: 15px; border-bottom: 1px solid var(--border-color); position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <strong style="font-size: 16px;">${entry.dish}</strong>
+                            <span style="margin-left: 10px; color: #f39c12;">${'★'.repeat(entry.rating)}</span>
+                        </div>
+                        <span style="color: var(--text-secondary); font-size: 12px;">${entry.date}</span>
+                    </div>
+                    <p style="margin: 8px 0; color: var(--text-secondary); font-size: 14px;">${entry.notes}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 12px; padding: 3px 10px; background: ${entry.success === 'success' ? '#2ecc71' : (entry.success === 'ok' ? '#f39c12' : '#e74c3c')}; color: white; border-radius: 15px;">
+                            ${successEmoji} ${successText}
+                        </span>
+                        <button class="delete-diary" data-index="${index}" style="background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 16px;">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+        
+        listDiv.innerHTML = html;
+        if (countSpan) countSpan.innerText = diaryEntries.length;
+        
+        // 添加删除事件
+        document.querySelectorAll('.delete-diary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                if (confirm('确定要删除这条记录吗？')) {
+                    diaryEntries.splice(index, 1);
+                    saveDiary();
+                    renderDiary();
+                }
+            });
+        });
+    }
+    
+    // 保存到本地存储
+    function saveDiary() {
+        localStorage.setItem('foodDiary', JSON.stringify(diaryEntries));
+    }
+    
+    // 保存新记录
+    document.getElementById('saveDiaryBtn')?.addEventListener('click', function() {
+        const dish = document.getElementById('diaryDishName').value.trim();
+        const rating = parseInt(document.getElementById('diaryRating').value);
+        const notes = document.getElementById('diaryNotes').value.trim();
+        const success = document.getElementById('diarySuccess').value;
+        
+        if (!dish) {
+            alert('请输入菜名');
+            return;
+        }
+        
+        if (rating === 0) {
+            alert('请给这道菜评分');
+            return;
+        }
+        
+        const newEntry = {
+            dish: dish,
+            rating: rating,
+            notes: notes || '没有写心得',
+            success: success,
+            date: new Date().toLocaleDateString('zh-CN')
+        };
+        
+        diaryEntries.push(newEntry);
+        saveDiary();
+        renderDiary();
+        
+        // 清空表单
+        document.getElementById('diaryDishName').value = '';
+        document.getElementById('diaryRating').value = '0';
+        document.getElementById('diaryNotes').value = '';
+        updateStars(0, 'normal');
+    });
+    
+    // 清空所有记录
+    document.getElementById('clearDiaryBtn')?.addEventListener('click', function() {
+        if (confirm('确定要清空所有日记记录吗？')) {
+            diaryEntries = [];
+            saveDiary();
+            renderDiary();
+        }
+    });
+    
+    // 初始渲染
+    renderDiary();
+})();
 
     </script>
 </body>
