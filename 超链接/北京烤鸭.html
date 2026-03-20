@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食制作 | 北京烤鸭 - 京味经典名菜</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        /* 顶部标题栏 */
+        .page-header {
+            background-color: #fff;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid #eee;
+        }
+        .page-header h1 {
+            font-size: 1.8rem;
+            color: #e67e22;
+            font-weight: 600;
+        }
+        .page-header p {
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        /* 主容器 */
+        .cook-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+        /* 左侧制作区 */
+        .cook-main {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        /* 视频区域 */
+        .video-box {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .video-box video {
+            width: 100%;
+            height: auto;
+        }
+        /* 步骤区域 */
+        .steps-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffe8d6;
+        }
+        .cook-step {
+            display: flex;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .step-index {
+            width: 3rem;
+            height: 3rem;
+            background-color: #e67e22;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-content h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        .step-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+        /* 右侧食材/贴士侧边栏 */
+        .cook-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .sidebar-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .sidebar-card h2 {
+            font-size: 1.3rem;
+            color: #e67e22;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sidebar-card h2 i {
+            font-style: normal;
+            font-size: 1.5rem;
+        }
+        .ingredient-list {
+            list-style: none;
+        }
+        .ingredient-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+        .ingredient-name {
+            color: #333;
+        }
+        .ingredient-amount {
+            color: #e67e22;
+            font-weight: 500;
+        }
+        .tips-list {
+            list-style: none;
+        }
+        .tips-list li {
+            padding: 0.6rem 0;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .cook-container {
+                grid-template-columns: 1fr;
+            }
+            .cook-step {
+                gap: 1rem;
+            }
+            .step-index {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面顶部标题 -->
+    <div class="page-header">
+        <h1>美食制作专区</h1>
+        <p>手把手教你做经典美食 | 北京烤鸭（家庭版）</p>
+    </div>
+
+    <!-- 主制作区域 -->
+    <div class="cook-container">
+        <!-- 左侧：视频+制作步骤 -->
+        <div class="cook-main">
+            <!-- 制作视频 -->
+            <div class="video-box">
+    <!-- 替换成B站的嵌入代码 -->
+    <iframe src="https://www.bilibili.com/video/BV1x6421Z78W?t=4.4" 
+            scrolling="no" border="0" frameborder="no" framespacing="0" 
+            width="100%" height="560" allowfullscreen="true">
+    </iframe>
+</div>
+
+            <!-- 制作步骤 -->
+            <h2 class="steps-title">详细制作步骤（家庭烤箱版）</h2>
+
+            <div class="cook-step">
+                <div class="step-index">1</div>
+                <div class="step-content">
+                    <h3>处理鸭坯（核心第一步）</h3>
+                    <p>选1只约2kg的北京填鸭/樱桃谷鸭，洗净后用厨房纸吸干表面水分；用牙签在鸭皮上扎密集小孔（不扎透鸭肉），便于油脂析出；调制脆皮水（麦芽糖15g+白醋50ml+清水100ml），均匀刷满鸭身，挂在通风处风干4-6小时（表皮完全干燥发紧，脆皮关键）。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">2</div>
+                <div class="step-content">
+                    <h3>腌制入味</h3>
+                    <p>取葱段100g、姜片50g、八角2颗、桂皮1小段、香叶2片、盐10g，混合后填入鸭腹；鸭皮表面不撒盐（避免皮硬），用锡纸包裹鸭翅、鸭腿尖端（防止烤焦），静置30分钟让调料入味。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">3</div>
+                <div class="step-content">
+                    <h3>第一次烤制（定型）</h3>
+                    <p>烤箱预热至180℃，将鸭坯放在烤架上（下方接烤盘接油），烤40分钟；期间每隔15分钟检查，避免局部烤焦，此步骤让鸭肉熟透，油脂初步析出。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">4</div>
+                <div class="step-content">
+                    <h3>二次烤制（脆皮）</h3>
+                    <p>取出烤鸭，刷一层薄蜂蜜水（蜂蜜10g+清水20ml），将烤箱温度调至220℃，放入烤鸭烤15-20分钟，直至鸭皮呈枣红色、酥脆起泡（注意观察，避免烤糊）。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">5</div>
+                <div class="step-content">
+                    <h3>片鸭与搭配</h3>
+                    <p>烤鸭出炉后静置5分钟，趁热片鸭：先片鸭皮（带少量鸭肉），每片约2cm见方，共片108片（传统标准）；搭配荷叶饼、甜面酱、葱丝、黄瓜条、山楂条，卷食即可。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：食材+贴士侧边栏 -->
+        <div class="cook-sidebar">
+            <!-- 食材清单 -->
+            <div class="sidebar-card">
+                <h2><i>🦆</i> 食材清单（1只份）</h2>
+                <ul class="ingredient-list">
+                    <li>
+                        <span class="ingredient-name">北京填鸭/樱桃谷鸭</span>
+                        <span class="ingredient-amount">1只（约2kg）</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">麦芽糖</span>
+                        <span class="ingredient-amount">15g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">白醋</span>
+                        <span class="ingredient-amount">50ml</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">葱段/姜片</span>
+                        <span class="ingredient-amount">100g/50g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">八角/桂皮/香叶</span>
+                        <span class="ingredient-amount">2颗/1小段/2片</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">盐/蜂蜜</span>
+                        <span class="ingredient-amount">10g/10g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">荷叶饼/甜面酱</span>
+                        <span class="ingredient-amount">适量</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">葱丝/黄瓜条</span>
+                        <span class="ingredient-amount">适量</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 制作贴士 -->
+            <div class="sidebar-card">
+                <h2><i>💡</i> 制作贴士</h2>
+                <ul class="tips-list">
+                    <li>鸭皮风干越彻底，烤后越酥脆，风干时避免阳光直射，常温通风即可。</li>
+                    <li>没有麦芽糖可用蜂蜜替代，脆皮水必须刷匀，否则皮色不均。</li>
+                    <li>烤箱烤制时上下火模式最佳，中途可翻面一次，让受热更均匀。</li>
+                    <li>片鸭要趁热，刀工要求“皮不离肉，肉不离皮”，口感最佳。</li>
+                    <li>剩余鸭架可熬汤，加冬瓜/白萝卜，鲜香味浓，不浪费食材。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

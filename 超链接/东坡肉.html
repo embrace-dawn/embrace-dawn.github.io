@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东坡肉 - 千年东坡味，一碗江南情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 导航栏 */
+        nav {
+            background-color: #fff;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d35400;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            float: right;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #d35400;
+        }
+        /* 头部横幅 */
+        .hero {
+            text-align: center;
+            padding: 4rem 5%;
+            background-color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        .hero .divider {
+            width: 80px;
+            height: 4px;
+            background-color: #e67e22;
+            margin: 0 auto 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        /* 卡片容器 */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+        /* 菜品概览卡片 */
+        .food-overview {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .food-img {
+            width: 40%;
+            object-fit: cover;
+        }
+        .food-content {
+            width: 60%;
+            padding: 2.5rem;
+        }
+        .food-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .food-desc {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        /* 内容模块 */
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .section h3 {
+            font-size: 1.8rem;
+            color: #d35400;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #d35400;
+            padding-left: 1rem;
+        }
+        .section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .section li {
+            margin-bottom: 0.6rem;
+        }
+        /* 底部 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 3rem;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .food-overview {
+                flex-direction: column;
+            }
+            .food-img, .food-content {
+                width: 100%;
+            }
+            nav ul {
+                float: none;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">食遇 · 美食解析</div>
+        <ul>
+            <li><a href="#overview">菜品概览</a></li>
+            <li><a href="#ingredients">食材与工艺</a></li>
+            <li><a href="#culture">历史文化</a></li>
+            <li><a href="#recipe">家常做法</a></li>
+        </ul>
+    </nav>
+
+    <!-- 头部横幅 -->
+    <div class="hero">
+        <h1>美食解析</h1>
+        <div class="divider"></div>
+        <p>从食材、工艺、文化多角度解析美食的魅力</p>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 菜品概览 -->
+        <div class="food-overview" id="overview">
+            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.c10295f822076113130cd99c4c88c877?rik=Hnx4hbiR8r7j5Q&riu=http%3a%2f%2fn.sinaimg.cn%2fsinacn02%2f264%2fw594h470%2f20180526%2f4c1b-hcaqueu1423426.jpg&ehk=sTKRTV4GCjxMyT91hHOO9WXnrXOrob0zV54fx1RM%2bjI%3d&risl=&pid=ImgRaw&r=0" alt="东坡肉" class="food-img">
+            <div class="food-content">
+                <h2>东坡肉：千年东坡味，一碗江南情</h2>
+                <div class="tags">
+                    <span class="tag">中式料理</span>
+                    <span class="tag">江浙菜系</span>
+                    <span class="tag">慢炖工艺</span>
+                </div>
+                <p class="food-desc">
+                    核心在于「慢炖收汁」：三层五花肉+黄酒替代水，小火慢炖2小时以上，油脂融入肉质，达到肥而不腻、入口即化的境界。
+                    红亮油润的色泽，软糯香甜的口感，承载着江南水乡的温润与文人雅士的情怀。
+                </p>
+                <a href="#recipe" style="color: #d35400; text-decoration: none; font-weight: 500;">查看家常做法 →</a>
+            </div>
+        </div>
+
+        <!-- 食材与工艺 -->
+        <div class="section" id="ingredients">
+            <h3>🥩 食材与核心工艺</h3>
+            <h4>✅ 必备食材</h4>
+            <ul>
+                <li>三层五花肉：肥瘦相间，是东坡肉口感的基础</li>
+                <li>黄酒：替代清水，去腥增香，赋予醇厚酒香</li>
+                <li>冰糖/白糖：炒糖色，形成红亮色泽与微甜风味</li>
+                <li>生抽、老抽：提鲜上色，平衡咸甜</li>
+                <li>葱姜、八角、桂皮：去腥增香，丰富层次</li>
+            </ul>
+            <h4>🔥 核心工艺</h4>
+            <ol>
+                <li>焯水定型：五花肉冷水下锅，煮至断生，去除血沫</li>
+                <li>切块捆扎：切大方块，用棉线捆扎，防止炖煮时散形</li>
+                <li>炒糖色：小火炒冰糖至琥珀色，加入热水制成糖色水</li>
+                <li>慢炖收汁：放入砂锅，倒入黄酒、糖色水与调料，小火炖2-3小时</li>
+                <li>蒸制提味：炖好后移入蒸屉，蒸30分钟，让油脂进一步析出，口感更软糯</li>
+            </ol>
+        </div>
+
+        <!-- 历史文化 -->
+        <div class="section" id="culture">
+            <h3>📜 历史与文化渊源</h3>
+            <p>
+                东坡肉相传为北宋文豪苏轼（苏东坡）在杭州任知州时所创。当时西湖淤塞，苏轼组织民工疏浚西湖，百姓为感谢他，送来了猪肉与酒。
+                苏轼指点家人将肉切成方块，用黄酒慢炖，分给百姓食用，因其软糯香甜、肥而不腻，被百姓亲切称为「东坡肉」。
+            </p>
+            <p>
+                这道菜不仅是江浙菜系的经典代表，更承载了文人与百姓的情感联结，成为中国饮食文化中「食以载道」的生动体现。
+                如今，东坡肉已成为国家级非物质文化遗产，是江南饮食文化的一张名片。
+            </p>
+        </div>
+
+        <!-- 家常做法 -->
+        <div class="section" id="recipe">
+            <h3>👩🍳 家常版东坡肉做法</h3>
+            <ol>
+                <li>五花肉洗净，冷水下锅，加姜片、料酒，煮10分钟，捞出放凉，切3cm见方的块，用棉线捆紧</li>
+                <li>锅中放少许油，下冰糖小火炒至融化呈琥珀色，倒入热水搅匀，制成糖色水备用</li>
+                <li>砂锅中铺姜片、葱段，放入五花肉，倒入糖色水、黄酒（没过肉块），加生抽、老抽、八角、桂皮</li>
+                <li>大火烧开后转小火，盖盖慢炖2小时，至筷子能轻松戳透</li>
+                <li>将肉块移入碗中，浇上少许汤汁，上锅蒸30分钟，出锅撒葱花即可</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        <p>© 2026 食遇 · 美食解析 | 探寻中华美食的味道与故事</p>
+    </footer>
+</body>
+</html>

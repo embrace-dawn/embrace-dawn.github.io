@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西餐 - 西方饮食文化详解</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", 微软雅黑, "SimSun", 宋体, sans-serif;
+        }
+
+        /* 页面基础样式 - 西餐暖棕色调 */
+        body {
+            background-color: #faf6f0;
+            color: #333;
+            line-height: 1.8;
+            padding-bottom: 3rem;
+        }
+
+        /* 头部样式 - 暖棕与深咖渐变 */
+        header {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .header-desc {
+            font-size: 1.2rem;
+            font-weight: normal;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 内容容器 */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 章节样式 */
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #a0522d;
+        }
+
+        .section-title {
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8dcca;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* 菜系分类列表样式 */
+        .cuisine-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cuisine-card {
+            border: 1px solid #e8dcca;
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: transform 0.3s ease;
+            background-color: #fefefe;
+        }
+
+        .cuisine-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cuisine-name {
+            font-size: 1.3rem;
+            color: #8b4513;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .cuisine-feature {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* 特点列表样式 */
+        .feature-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #a0522d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 引用样式 - 西餐风格 */
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #a0522d;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f8f2e9;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <h1>西餐 - 西方饮食文化深度解析</h1>
+        <p class="header-desc">西餐（Western Cuisine）泛指西方发达国家的饮食体系，以严谨、精致、多样化为核心特色</p>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="content-container">
+        <!-- 西餐概述 -->
+        <section class="section">
+            <h2 class="section-title">一、西餐的整体概述</h2>
+            <div class="section-content">
+                <p>西餐是对西方欧洲国家及部分受西方文化影响地区饮食的统称，核心涵盖**欧洲菜系**为主的饮食体系。其发展历程与欧洲的地理环境、宗教文化、贵族礼仪紧密相关，经历了从中世纪简单饮食到文艺复兴时期精致料理的演变。</p>
+                <p>现代西餐注重**标准化与个性化**的结合：既有米其林餐厅的极致奢华，也有街头快餐的便捷亲民；同时，随着全球化交流，西餐不断吸收融合各地风味，形成了多元包容的饮食格局。</p>
+                
+                <div class="quote">
+                    “吃饭是为了生存，而吃好饭是为了生活”——西方饮食文化始终将“享受”与“实用”置于同等重要的地位。
+                </div>
+            </div>
+        </section>
+
+        <!-- 西餐的核心特点 -->
+        <section class="section">
+            <h2 class="section-title">二、西餐的核心特点</h2>
+            <div class="section-content">
+                <p>与中餐相比，西餐的核心特色鲜明且独特，主要体现在以下几个方面：</p>
+                <ul class="feature-list">
+                    <li><strong>分餐制（Individual Service）</strong>：采用一人一份的用餐方式，餐具独立，定量分配，注重卫生与礼仪，是西餐最显著的特征之一。</li>
+                    <li><strong>食材本位（Ingredient First）</strong>：烹饪以食材为核心，强调保留食材本身的风味，调味多遵循“适配而非掩盖”原则，酱汁通常为辅助。</li>
+                    <li><strong>烹饪技法精炼（Simple Techniques）</strong>：核心技法包括烤（Roast/Bake）、煎（Sauté）、煮（Boil）、焗（Bake）、低温慢煮（Sous Vide），注重火候与温度的精准控制。</li>
+                    <li><strong>刀叉礼仪（Table Manners）</strong>：有严格的餐具使用规范（左叉右刀、刀刃朝内、餐具摆放顺序），体现了西方文化对秩序与尊重的重视。</li>
+                    <li><strong>餐次分明（Multi-course）</strong>：传统正餐分为前菜、汤、副菜、主菜、甜点、咖啡等多道流程，讲究循序渐进的味觉体验。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 西餐主要流派分类 -->
+        <section class="section">
+            <h2 class="section-title">三、西餐主要流派介绍</h2>
+            <div class="section-content">
+                <p>西餐体系庞大，核心以**欧洲三大菜系**为基础，延伸至全球各地风味，主要分为以下类别：</p>
+                
+                <div class="cuisine-list">
+                    <!-- 法式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">法式西餐（French Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>地位</strong>：西餐之母，全球最具影响力的菜系<br>
+                        <strong>核心特点</strong>：精致优雅、酱汁丰富、刀工极致<br>
+                        <strong>代表菜品</strong>：法式洋葱汤、红酒炖牛肉、香煎鹅肝、马卡龙<br>
+                        <strong>特色</strong>：拥有完整的烹饪体系，分为经典法餐与现代法餐两大分支</p>
+                    </div>
+
+                    <!-- 意式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">意式西餐（Italian Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：简单质朴、善用橄榄油、面食为主<br>
+                        <strong>代表菜品</strong>：披萨（Pizza）、意面（Pasta）、千层面、提拉米苏<br>
+                        <strong>特色</strong>：地域差异明显（北意讲究黄油大米，南意侧重番茄辣椒），是全球最普及的西餐流派</p>
+                    </div>
+
+                    <!-- 美式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">美式西餐（American Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：豪爽量大、融合多元、快餐文化<br>
+                        <strong>代表菜品</strong>：汉堡、牛排、炸鸡、烤肋排、派（Pie）<br>
+                        <strong>特色</strong>：受移民文化影响，融合了德、英、墨等多国风味，诞生了肯德基、麦当劳等全球巨头</p>
+                    </div>
+
+                    <!-- 德式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">德式西餐（German Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：粗犷实在、肉类丰富、啤酒搭配<br>
+                        <strong>代表菜品</strong>：烤猪肘、香肠拼盘、酸菜、黑森林蛋糕<br>
+                        <strong>特色</strong>：分量足、油脂含量高，巴伐利亚地区风味最为经典</p>
+                    </div>
+
+                    <!-- 地中海西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">地中海西餐（Mediterranean Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：健康低脂、海鲜为主、橄榄油核心<br>
+                        <strong>代表菜品</strong>：希腊沙拉、西班牙海鲜饭、意大利烩饭<br>
+                        <strong>特色</strong>：涵盖西、意、希等多国风味，被公认为最健康的饮食结构之一</p>
+                    </div>
+
+                    <!-- 英式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">英式西餐（British Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：传统厚重、早餐丰盛、下午茶文化<br>
+                        <strong>代表菜品</strong>：炸鱼薯条、周日烤肉、英式早餐、司康饼<br>
+                        <strong>特色</strong>：曾被吐槽单调，如今已融合多国风味，但其传统礼仪仍保留完好</p>
+                    </div>
+
+                    <!-- 西班牙西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">西班牙西餐（Spanish Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：热情奔放、海鲜多样、伊比利亚火腿<br>
+                        <strong>代表菜品</strong>：海鲜饭、塔帕斯（Tapas）、伊比利亚火腿、巧克力配油条<br>
+                        <strong>特色</strong>：受阿拉伯文化影响深远，风味浓郁，极具社交属性</p>
+                    </div>
+
+                    <!-- 俄式西餐 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">俄式西餐（Russian Cuisine）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：高热量、酸甜口、浓汤为主<br>
+                        <strong>代表菜品</strong>：罗宋汤、俄式馅饼、基辅鸡、俄式红茶<br>
+                        <strong>特色</strong>：适应寒冷气候，多采用炖煮腌制手法，食材保存时间久</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 西餐的文化意义 -->
+        <section class="section">
+            <h2 class="section-title">四、西餐的文化意义</h2>
+            <div class="section-content">
+                <p>西餐不仅是食物的集合，更是西方文明与生活方式的具象化体现：</p>
+                <ul class="feature-list">
+                    <li>**社交与礼仪的载体**：从家庭晚餐到商务宴请，西餐承载着人际关系的维系与礼仪文化的传承。</li>
+                    <li>**科学饮食的典范**：注重营养成分的科学配比（碳水、蛋白质、脂肪比例均衡），是现代营养学的重要基础。</li>
+                    <li>**艺术与美学的结合**：米其林星级餐厅将料理提升至艺术高度，强调摆盘、色彩、光影的视觉呈现。</li>
+                    <li>**全球化的推动者**：西餐的标准化生产（如快餐连锁）与冷链技术，加速了全球饮食文化的融合与传播。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

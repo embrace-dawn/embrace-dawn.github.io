@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食制作 | 抹茶慕斯 - 日式清新甜点</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        /* 顶部标题栏 */
+        .page-header {
+            background-color: #fff;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid #eee;
+        }
+        .page-header h1 {
+            font-size: 1.8rem;
+            color: #6fbc6d; /* 抹茶主题色 */
+            font-weight: 600;
+        }
+        .page-header p {
+            color: #666;
+            margin-top: 0.3rem;
+        }
+        /* 主容器 */
+        .cook-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+        /* 左侧制作区 */
+        .cook-main {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        /* 视频区域 */
+        .video-box {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .video-box video {
+            width: 100%;
+            height: auto;
+        }
+        /* 步骤区域 */
+        .steps-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8f5e9; /* 抹茶主题浅绿 */
+        }
+        .cook-step {
+            display: flex;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .step-index {
+            width: 3rem;
+            height: 3rem;
+            background-color: #6fbc6d; /* 抹茶主题色 */
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-content h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        .step-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+        /* 右侧食材/贴士侧边栏 */
+        .cook-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .sidebar-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .sidebar-card h2 {
+            font-size: 1.3rem;
+            color: #6fbc6d; /* 抹茶主题色 */
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sidebar-card h2 i {
+            font-style: normal;
+            font-size: 1.5rem;
+        }
+        .ingredient-list {
+            list-style: none;
+        }
+        .ingredient-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+        .ingredient-name {
+            color: #333;
+        }
+        .ingredient-amount {
+            color: #6fbc6d; /* 抹茶主题色 */
+            font-weight: 500;
+        }
+        .tips-list {
+            list-style: none;
+        }
+        .tips-list li {
+            padding: 0.6rem 0;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .cook-container {
+                grid-template-columns: 1fr;
+            }
+            .cook-step {
+                gap: 1rem;
+            }
+            .step-index {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面顶部标题 -->
+    <div class="page-header">
+        <h1>美食制作专区</h1>
+        <p>手把手教你做经典美食 | 抹茶慕斯（免烤版）</p>
+    </div>
+
+    <!-- 主制作区域 -->
+    <div class="cook-container">
+        <!-- 左侧：视频+制作步骤 -->
+        <div class="cook-main">
+            <!-- 制作视频 -->
+            <div class="video-box">
+    <!-- 替换成B站的嵌入代码 -->
+    <iframe src="https://www.bilibili.com/video/BV1gx411o7KR?t=2.5" 
+            scrolling="no" border="0" frameborder="no" framespacing="0" 
+            width="100%" height="560" allowfullscreen="true">
+    </iframe>
+</div>
+
+            <!-- 制作步骤 -->
+            <h2 class="steps-title">详细制作步骤（6寸模具）</h2>
+
+            <div class="cook-step">
+                <div class="step-index">1</div>
+                <div class="step-content">
+                    <h3>制作饼干底</h3>
+                    <p>取100g奥利奥饼干（去掉夹心），放入保鲜袋中用擀面杖压成粉末；50g黄油隔热水融化，倒入饼干碎中搅拌均匀；将混合好的饼干碎倒入6寸慕斯模具，用勺子压实铺平，放入冰箱冷藏20分钟定型（模具底部可垫油纸，方便脱模）。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">2</div>
+                <div class="step-content">
+                    <h3>调制抹茶糊</h3>
+                    <p>20g吉利丁片用冷水泡软（约5分钟），挤干水分备用；取20g宇治抹茶粉（优选青岚/五十铃），加入60ml热牛奶搅拌至无颗粒（避免结块）；另取150ml淡奶油，加入30g白砂糖，用打蛋器打发至6分发（出现纹路但仍可流动）。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">3</div>
+                <div class="step-content">
+                    <h3>混合慕斯液</h3>
+                    <p>泡软的吉利丁片隔热水融化，倒入抹茶牛奶糊中搅匀；将抹茶糊分2次倒入打发的淡奶油中，用刮刀翻拌均匀（避免消泡）；若喜欢更顺滑口感，可将混合好的慕斯液过筛1次，去除未搅匀的抹茶颗粒。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">4</div>
+                <div class="step-content">
+                    <h3>冷藏定型</h3>
+                    <p>将慕斯液缓缓倒入定型好的饼干底模具中，轻轻震几下模具，排出气泡；表面可撒少许抹茶粉装饰，放入冰箱冷藏4小时以上（建议冷藏过夜，口感更扎实）。</p>
+                </div>
+            </div>
+
+            <div class="cook-step">
+                <div class="step-index">5</div>
+                <div class="step-content">
+                    <h3>脱模与装饰</h3>
+                    <p>脱模前，用热毛巾包裹模具外侧捂10秒（或用吹风机吹模具边缘），轻松脱模；表面可淋一层镜面果胶（可选），搭配新鲜草莓/薄荷叶装饰，切块即可享用。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：食材+贴士侧边栏 -->
+        <div class="cook-sidebar">
+            <!-- 食材清单 -->
+            <div class="sidebar-card">
+                <h2><i>🍵</i> 食材清单（6寸）</h2>
+                <ul class="ingredient-list">
+                    <li>
+                        <span class="ingredient-name">奥利奥饼干（去夹心）</span>
+                        <span class="ingredient-amount">100g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">无盐黄油</span>
+                        <span class="ingredient-amount">50g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">宇治抹茶粉</span>
+                        <span class="ingredient-amount">20g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">纯牛奶</span>
+                        <span class="ingredient-amount">60ml</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">淡奶油（动物性）</span>
+                        <span class="ingredient-amount">150ml</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">白砂糖</span>
+                        <span class="ingredient-amount">30g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">吉利丁片</span>
+                        <span class="ingredient-amount">20g</span>
+                    </li>
+                    <li>
+                        <span class="ingredient-name">装饰：草莓/薄荷叶</span>
+                        <span class="ingredient-amount">适量</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 制作贴士 -->
+            <div class="sidebar-card">
+                <h2><i>💡</i> 制作贴士</h2>
+                <ul class="tips-list">
+                    <li>抹茶粉需用热牛奶搅匀，避免直接加冷水导致结块，影响口感。</li>
+                    <li>淡奶油打发至6分发即可，过度打发会让慕斯口感偏硬，失去顺滑度。</li>
+                    <li>吉利丁片用冷水泡软，热水会使其失去凝固效果，融化时水温不超过60℃。</li>
+                    <li>冷藏时间不足会导致慕斯不成型，建议至少冷藏4小时，过夜最佳。</li>
+                    <li>抹茶粉选宇治系列（青岚/五十铃），颜色更翠绿，苦涩味更淡。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

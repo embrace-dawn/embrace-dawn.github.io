@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日式料理 - 日本饮食文化详解</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", 微软雅黑, "SimSun", 宋体, sans-serif;
+        }
+
+        /* 页面基础样式 - 调整为日式简约风格配色 */
+        body {
+            background-color: #faf9f7;
+            color: #333;
+            line-height: 1.8;
+            padding-bottom: 3rem;
+        }
+
+        /* 头部样式 - 日式和风配色（藏青+浅木色） */
+        header {
+            background: linear-gradient(135deg, #264653, #2a9d8f);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .header-desc {
+            font-size: 1.2rem;
+            font-weight: normal;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 内容容器 */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 章节样式 */
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #2a9d8f;
+        }
+
+        .section-title {
+            color: #264653;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9e6e0;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* 料理分类列表样式 */
+        .cuisine-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cuisine-card {
+            border: 1px solid #e9e6e0;
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: transform 0.3s ease;
+            background-color: #fefefe;
+        }
+
+        .cuisine-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cuisine-name {
+            font-size: 1.3rem;
+            color: #264653;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .cuisine-feature {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* 特点列表样式 */
+        .feature-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #2a9d8f;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 引用样式 - 调整为日式风格 */
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #2a9d8f;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f5f8f7;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <h1>日式料理 - 日本饮食文化精髓</h1>
+        <p class="header-desc">和食（わしょく）作为世界非物质文化遗产，以简约、自然、精致的饮食哲学闻名于世</p>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="content-container">
+        <!-- 日式料理概述 -->
+        <section class="section">
+            <h2 class="section-title">一、日式料理的整体概述</h2>
+            <div class="section-content">
+                <p>日式料理（和食/Washoku）是日本传统饮食文化的总称，2013年被联合国教科文组织列入《人类非物质文化遗产代表作名录》。它以“自然之味”为核心，融合了日本列岛的地理环境、气候特征和人文习俗，形成了独特的饮食体系。</p>
+                <p>日式料理的发展深受中国饮食文化影响，但经过千年本土化演变，形成了区别于中餐的鲜明特色：注重食材本味、讲究季节感、追求视觉美学，体现了“一期一会”“物哀”等日本传统文化思想。</p>
+                
+                <div class="quote">
+                    “一期一会（いちごいちえ）”——源自茶道的理念，同样贯穿于和食文化，强调珍惜每一次用餐的缘分与食材的时令之美。
+                </div>
+            </div>
+        </section>
+
+        <!-- 日式料理的核心特点 -->
+        <section class="section">
+            <h2 class="section-title">二、日式料理的核心特点</h2>
+            <div class="section-content">
+                <p>日式料理之所以成为世界顶级美食体系，核心在于其独特的饮食哲学和制作准则：</p>
+                <ul class="feature-list">
+                    <li><strong>本物の味（本味至上）</strong>：最大限度保留食材本身的味道，少用重口味调料，烹饪方式以生食、蒸煮、烤、凉拌为主，突出食材的新鲜度。</li>
+                    <li><strong>季節の感（应季而食）</strong>：严格遵循四季食材变化，春食樱、夏食海、秋食栗、冬食锅，不同季节有对应的代表料理，讲究“旬の食材”（当季食材）。</li>
+                    <li><strong>目で食べる（视觉美学）</strong>：讲究“器と食”（器皿与食物）的搭配，摆盘追求简约精致，注重色彩、形状、摆盘的和谐，每一道菜都是视觉与味觉的双重享受。</li>
+                    <li><strong>繊細な調理（精细烹饪）</strong>：刀工精细、分量适中，注重细节处理，如刺身的切法、米饭的蒸煮温度、酱汁的调配比例都有严格标准。</li>
+                    <li><strong>栄養のバランス（营养均衡）</strong>：遵循“一汁三菜”（一碗汤、三道菜）的膳食结构，兼顾主食、蛋白质、蔬菜、汤品，营养搭配均衡。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 日式料理主要分类 -->
+        <section class="section">
+            <h2 class="section-title">三、日式料理的主要分类</h2>
+            <div class="section-content">
+                <p>日式料理体系丰富，涵盖日常家庭料理到高级怀石料理，主要分为以下类别：</p>
+                
+                <div class="cuisine-list">
+                    <!-- 刺身 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">刺身（さしみ）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：生食海鲜，刀工精湛，讲究新鲜度<br>
+                        <strong>代表食材</strong>：金枪鱼（鲔鱼）、三文鱼、甜虾、北极贝、鲷鱼<br>
+                        <strong>食用方式</strong>：搭配芥末、酱油，或直接食用</p>
+                    </div>
+
+                    <!-- 寿司 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">寿司（すし）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：醋饭搭配生鱼片/海鲜，手握成型<br>
+                        <strong>主要种类</strong>：手握寿司、卷寿司、军舰寿司、稻禾寿司<br>
+                        <strong>代表名品</strong>：金枪鱼大腹寿司、三文鱼寿司、玉子烧寿司</p>
+                    </div>
+
+                    <!-- 烧肉 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">焼肉（やきにく）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：炭火烤制各类肉类，调味清淡<br>
+                        <strong>代表食材</strong>：和牛（神户牛/松阪牛）、猪五花、牛舌<br>
+                        <strong>蘸料</strong>：盐、酱油味噌酱、柚子醋</p>
+                    </div>
+
+                    <!-- 拉面 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">ラーメン（拉面）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：劲道面条搭配特色汤底，配料丰富<br>
+                        <strong>主要流派</strong>：豚骨拉面（九州）、味噌拉面（北海道）、酱油拉面（东京）<br>
+                        <strong>经典配料</strong>：叉烧、溏心蛋、海苔、竹笋</p>
+                    </div>
+
+                    <!-- 怀石料理 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">懐石料理（かいせきりょうり）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：高级日式料理，源自茶道，精致极致<br>
+                        <strong>核心原则</strong>：四季应景、食材顶级、摆盘考究<br>
+                        <strong>食用场景</strong>：正式宴请，价格昂贵，注重仪式感</p>
+                    </div>
+
+                    <!-- 丼饭 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">丼もの（丼饭）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：米饭上铺盖食材，便捷美味<br>
+                        <strong>代表种类</strong>：牛丼、亲子丼、天妇罗丼、鳗鱼丼<br>
+                        <strong>特点</strong>：日式快餐的代表，兼顾营养与口感</p>
+                    </div>
+
+                    <!-- 天妇罗 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">天ぷら（天妇罗）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：食材裹薄衣油炸，外酥里嫩<br>
+                        <strong>代表食材</strong>：虾、茄子、南瓜、香菇<br>
+                        <strong>蘸料</strong>：天汁（出汁+味淋+酱油）、萝卜泥</p>
+                    </div>
+
+                    <!-- 锅物料理 -->
+                    <div class="cuisine-card">
+                        <h3 class="cuisine-name">鍋物料理（なべもの）</h3>
+                        <p class="cuisine-feature"><strong>核心特点</strong>：冬季暖锅，食材丰富，边煮边吃<br>
+                        <strong>代表种类</strong>：寿喜烧、关东煮、相扑火锅、河豚火锅<br>
+                        <strong>特点</strong>：注重汤底风味，食材新鲜</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化意义 -->
+        <section class="section">
+            <h2 class="section-title">四、日式料理的文化意义</h2>
+            <div class="section-content">
+                <p>日式料理不仅是饮食方式，更是日本文化精神的集中体现：</p>
+                <ul class="feature-list">
+                    <li>体现“物の哀れ（物哀）”美学：珍惜食材的短暂美好，尊重自然的馈赠，反映了日本人对自然和生命的敬畏。</li>
+                    <li>传承匠人精神：从寿司师傅到怀石料理主厨，都以“一生悬命”的态度钻研技艺，追求极致的专业度。</li>
+                    <li>推动饮食全球化：寿司、拉面等日式料理已成为全球流行的美食，是日本文化输出的重要载体。</li>
+                    <li>倡导健康饮食理念：低油、低盐、注重本味的饮食方式，符合现代健康饮食趋势，被全球推崇。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
